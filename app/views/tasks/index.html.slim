@@ -1,3 +1,20 @@
 h1 TaskList
 
 = link_to '新規登録', new_task_path, class: 'btn btn-primary' 
+
+.mb-3
+table.table.table-hover
+  thead.thead-default
+    tr
+      th = Task.name
+      th = 'created_at'
+      th
+    tbody
+      - @tasks.each do |task|
+        tr
+          td = link_to task.name, task_path(task)
+          td = task.created_at
+          td
+            = link_to 'edit', edit_task_path(task), class: 'btn btn-primary mr-3'
+            = link_to 'delete', task, method: :delete, data: { confirm: "タスク「#{task.name}」を削除します。よろしいですか？"}, 
+            class: 'btn btn-danger'

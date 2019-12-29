@@ -1,13 +1,6 @@
 h1 NEW TASK
 
 .nav.justify-content-end
-  = link_to 'index', tasks_path. class: 'nav-link'
+  = link_to 'index', tasks_path, class: 'nav-link'
 
-  = form_with model: @task. local: true do |f|
-    .from-group
-      = f.label :name
-      = f.text_field :name, class:'form-control', id: 'task_name'
-    .font-group
-      = f.label :description
-      = f.text_area :description, rows: 5, class: 'font-control', id 'task_description'
-    = f.submit nil, class: 'btn btn-primary'
+= render partial: 'form', locals: {task: @task}
