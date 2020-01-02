@@ -1,0 +1,11 @@
+h1 login
+
+/scopeでparamsの頭にsesstionを付けとる。controller参照
+= form_with scope: :sesstion, local: true do |f|
+  .form-group
+    = f.label :email, 'mail address'
+    = f.text_field :email, class: 'form-control', id: 'sesstion_email'
+  .form-group
+    = f.label :password, 'password'
+    = f.text_field :password, class: 'form-control', id: 'sesstion_password'
+  = f.submit 'login', class: 'btn btn-primary'
